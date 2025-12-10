@@ -12,10 +12,17 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Install ClaudeCode
+      - name: Install
+        if: matrix.os == 'windows-2022'
         shell: pwsh
         run: |
           irm https://claude.ai/install.ps1 | iex
+
+      - name: Install
+        if: matrix.os == 'ubuntu-24.04'
+        shell: pwsh
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
 
       - name: Windows archive
         if: matrix.os == 'windows-2022'

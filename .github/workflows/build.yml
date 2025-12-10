@@ -28,14 +28,14 @@ jobs:
         if: matrix.os == 'ubuntu-24.04'
         uses: actions/upload-artifact@v5
         with:
-          name: cc_windows
+          name: cc_linux
           path: |
-            .local/bin/claude
+            ~/.local/bin/claude
 
       - name: Windows archive
         if: matrix.os == 'windows-2022'
         uses: actions/upload-artifact@v5
         with:
-          name: cc_linux
+          name: cc_windows
           path: |
-            .local/bin/claude.exe
+            ~/.local/bin/claude.exe
